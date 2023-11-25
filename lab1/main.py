@@ -17,10 +17,9 @@ with open('DS0.txt', 'r') as file:
 alpha = math.radians(10)
 
 # Визначення матриці обертання
-h, k = 480, 480
 rotation_matrix = [
-    [math.cos(alpha), -math.sin(alpha), (1 - math.cos(alpha)) * h + math.sin(alpha) * k],
-    [math.sin(alpha), math.cos(alpha), -math.sin(alpha) * h + (1 - math.cos(alpha)) * k],
+    [math.cos(alpha), -math.sin(alpha), 0],
+    [math.sin(alpha), math.cos(alpha), 0],
     [0, 0, 1]
 ]
 
