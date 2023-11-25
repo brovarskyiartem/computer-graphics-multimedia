@@ -54,7 +54,18 @@ for point in transformed_datapoints:
     x, y = x - point_radius, y - point_radius  # Центруємо точки
     x1, y1 = x + 2 * point_radius, y + 2 * point_radius  # Розраховуємо прямокутник, який включає точку
     draw.ellipse([x, y, x1, y1], fill=point_color, outline=point_color)
+transformed_filename = "dataset.txt"  # Новий файл для збереження трансформованих точок
 
+with open(transformed_filename, 'w') as file:
+    for point in transformed_datapoints:
+        x, y = point
+        x, y = int(y), int(520 - x)  # Обертання координат на 90 градусів
+        x, y = x - point_radius, y - point_radius  # Центруємо точки
+        x1, y1 = x + 2 * point_radius, y + 2 * point_radius  # Розраховуємо прямокутник, який включає точку
+        draw.ellipse([x, y, x1, y1], fill=point_color, outline=point_color)
+        
+        # Запис точок у новий файл
+        file.write(f"int({x}) int({y})\n")
 # Збереження результатів у файл
 image.save("transformed_result.png")
 image.show()  # Покажемо на екрані
